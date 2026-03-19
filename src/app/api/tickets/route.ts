@@ -7,8 +7,8 @@ export async function GET() {
     // El usuario (simulado) pertenece a 'TechCorp', pero aquí traemos todos los tickets
     // de la base de datos sin filtrar.
     const tickets = await prisma.ticket.findMany({
+      where: { companyId: 'TechCorp' },
       orderBy: { createdAt: 'desc' },
-      // Falta: where: { companyId: 'TechCorp' } o usando el usuario de la sesión
     })
 
     return NextResponse.json(tickets)
