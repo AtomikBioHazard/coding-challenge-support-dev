@@ -73,9 +73,6 @@ export default function Dashboard() {
   }
 
   return (
-    // BUG 1 INTENCIONAL: El Navbar inferior bloquea el contenido
-    // En móviles, falta un padding inferior (ej. pb-20) en este contenedor para que el 
-    // último ticket no quede escondido detrás del fixed footer y su botón sea in-clickeable.
     <div className="min-h-screen bg-gray-50 relative">
       
       {/* Header Fijo */}
@@ -87,7 +84,7 @@ export default function Dashboard() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-3xl mx-auto px-4 py-6">
+      <main className="max-w-3xl mx-auto px-4 py-6 pb-24 md:pb-6">
         <div className="mb-6 flex justify-between items-end">
           <div>
             <h2 className="text-2xl font-bold text-gray-800">Tickets Asignados</h2>
@@ -169,7 +166,7 @@ export default function Dashboard() {
         </div>
       </main>
 
-      {/* Mobile Sticky Footer - Causa el Bug 1 en móviles */}
+      {/* Mobile Sticky Footer */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] p-4 flex justify-around items-center z-50">
         <div className="flex flex-col items-center text-blue-600">
           <Clock className="w-6 h-6 mb-1" />
